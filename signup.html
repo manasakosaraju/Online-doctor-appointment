@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<title>Online doctor appointment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+<style>
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+	
+		.ok, .info, .error {
+		padding: 0px 2px;
+	}
+
+	.ok {
+		background: #cfc;
+		border: 2px solid #9c9;
+	}
+
+	.info {
+		background: #ffc;
+		border: 2px solid #cc9;
+	}
+
+	.error {
+		background: #fcc;
+		border: 2px solid #c99;
+	}
+  
+</style>
+
+<!-- AJAX CALL -->
+
+	<!-- End of AJAX Call -->
+	
+	 
+	<script src="validate1.js"></script>
+	
+</head>	
+	
+
+
+<body class="w3-theme-l5" style="background-image:url(images/Dr3.jpg); background-repeat:no-repeat; background-size:cover" >
+
+<!-- Navbar -->
+<div class="w3-top">
+ <ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
+  <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+    <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  </li>
+  <li><a href="login.html" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Online doctor appointment</a></li>
+  <!--<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" title="Appointments">Appointments</a></li>
+  <li class="w3-hide-small"><a href="favorites.php" class="w3-padding-large w3-hover-white" title="Favourites">Favorites</a></li>-->
+  <li class="w3-hide-small w3-dropdown-hover w3-right">
+    <a href="#" class="w3-padding-large w3-hover-white" title="My Account"><img src="images/avatar3.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>    
+    <div class="w3-dropdown-content w3-white w3-card-4" style="right:0">
+		<a href="login.html">Login</a>
+		<a href="signup.html">Sign Up</a>
+    </div>
+  </li>
+ </ul>
+</div>
+
+
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center"><strong>Online doctor appointment</strong></h4>
+         <!--<p class="w3-center"><img src="images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>-->
+         <p class="w3-center"><img src="images/Dr.jpg" style="height:200px;width:300px"></p>
+
+		 <!--<hr>
+			<p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Name: <strong><?php echo $_SESSION['sess_fname']; ?></strong></p>
+			<p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> City: </p>
+        --></div>
+      </div>
+      <br>
+      
+      
+			
+      <br>
+      
+      <br>
+      
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+     <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+           <!-- <div class="w3-container w3-padding">
+              <p contenteditable="true" class="w3-border w3-padding"></p>
+              <button type="button" class="w3-btn w3-theme"></i>Search</button> 
+            </div>-->
+          </div>
+        </div>
+      </div>
+      
+	  <div class="w3-container w3-card-2 w3-white w3-round w3-margin">
+	  <form id='signup' method='post' accept-charset='UTF-8'>
+
+		<br>
+
+				<h2>Sign Up Form:</h2>
+				<h3 style="color:red">All fields are mandatory</h3>
+				First name:<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;" name="FirstName" id="FirstName"><br>
+								
+				Last name:<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="LastName" id="LastName"><br>
+				
+				Date of Birth (DD-MM-YYYY):<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="DoB" id="DoB"><br>
+				
+				Email:<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="email" id="email"><br>
+				<h6  style="color:red" id="result">
+				</h6>
+				
+				Password:<input type="password" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="password" id="password"><br>
+				Confirm password:<input type="password" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="confirm_password" id="confirm_password"><br>
+
+
+				
+				PhoneNumber:<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="PhoneNumber" id="PhoneNumber"><br>
+				
+				Address:<input type="text" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;"name="Address" id="Address"><br>
+				
+				
+				<br>
+				<button type="button" class="btn btn-info btn-lg" style=" width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 4px;background-color: #4CAF50;" name='Submit' value='Submit' id='Submit'>Submit</button></td>
+	
+		</form>
+					
+
+	
+	  </div>
+	 
+	 
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <!--<p><strong>Upcoming Appointment:</strong></p>
+          <p>Doctor Name</p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4">Info</button></p>
+        --></div>
+      </div>
+      <br>
+      
+     
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+
+<footer class="w3-container w3-theme-d5">
+  <p align='center'>Online doctor appointment</p>
+</footer>
+<script type="text/javascript">
+
+	$("#Submit").click(function() {
+		var email=$("#email").val();
+			var FirstName=$("#FirstName").val();
+					var LastName=$("#LastName").val();
+					var DoB=$("#DoB").val();
+					var password=$("#password").val();
+					var PhoneNumber=$("#PhoneNumber").val();
+					var Address=$("#Address").val();
+		
+		$.ajax({
+			type:'POST',
+				url: 'validation.php',
+				data:{email:email, FirstName:FirstName,LastName:LastName,DoB:DoB,password:password,PhoneNumber:PhoneNumber,Address:Address},
+			dataType: "html",
+			success: function(data) 
+			{
+				if(data==1)
+				{
+					$("#result").html("Email id already exists");
+				}
+				
+				else
+				{
+					//$("#result").html("Email id correct");
+						$.ajax({
+			    type:'POST',
+				url: 'signup.php',
+				data:{email:email, FirstName:FirstName,LastName:LastName,DoB:DoB,password:password,PhoneNumber:PhoneNumber,Address:Address},
+				success:function(data)
+{
+	location.assign(data);
+}
+
+
+});
+					// window.location.href = "signup.php";
+					//location.assign("signup.php");
+				}
+			}
+		});
+	});
+
+
+</script>
+
+ 
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+function hidefunc(id) {
+	document.getElementById(id).style.visibility = "hidden";
+		
+}
+</script>
+	
+
+</body>
+</html> 
